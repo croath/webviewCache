@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIWebViewDelegate>
+
+@property (nonatomic, strong) UIWebView * myWebView;
+
+@property (nonatomic, strong) NSDate * beforeLoadTime;
+
+@property (nonatomic, strong) NSDate * afterLoadTime;
+
+@property (nonatomic, strong) NSURLRequest * request;
 
 @end

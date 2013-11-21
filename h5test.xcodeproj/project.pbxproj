@@ -22,6 +22,7 @@
 		02B965811835BBDE00120EC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B965601835BBDE00120EC0 /* UIKit.framework */; };
 		02B965891835BBDE00120EC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02B965871835BBDE00120EC0 /* InfoPlist.strings */; };
 		02B9658B1835BBDE00120EC0 /* h5testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B9658A1835BBDE00120EC0 /* h5testTests.m */; };
+		02B965991835F8F800120EC0 /* MJURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B965981835F8F800120EC0 /* MJURLProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		02B965861835BBDE00120EC0 /* h5testTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "h5testTests-Info.plist"; sourceTree = "<group>"; };
 		02B965881835BBDE00120EC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		02B9658A1835BBDE00120EC0 /* h5testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = h5testTests.m; sourceTree = "<group>"; };
+		02B965971835F8F800120EC0 /* MJURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJURLProtocol.h; sourceTree = "<group>"; };
+		02B965981835F8F800120EC0 /* MJURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJURLProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				02B965751835BBDE00120EC0 /* ViewController.m */,
 				02B965771835BBDE00120EC0 /* Images.xcassets */,
 				02B965631835BBDE00120EC0 /* Supporting Files */,
+				02B965971835F8F800120EC0 /* MJURLProtocol.h */,
+				02B965981835F8F800120EC0 /* MJURLProtocol.m */,
 			);
 			path = h5test;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			files = (
 				02B965761835BBDE00120EC0 /* ViewController.m in Sources */,
 				02B9656D1835BBDE00120EC0 /* AppDelegate.m in Sources */,
+				02B965991835F8F800120EC0 /* MJURLProtocol.m in Sources */,
 				02B965691835BBDE00120EC0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
