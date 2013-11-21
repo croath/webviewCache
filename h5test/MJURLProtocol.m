@@ -15,11 +15,18 @@
     // only handle http requests we haven't marked with our header.
     if ([[[request URL] scheme] isEqualToString:@"http"] || [[[request URL] scheme] isEqualToString:@"https"] ) {
         NSString * urlString =[[request URL] absoluteString];
+        NSInteger len = [urlString length];
         NSRange  jpgrang = [urlString rangeOfString:@"jpg" options:NSCaseInsensitiveSearch];
         NSRange  pngrang = [urlString rangeOfString:@"png" options:NSCaseInsensitiveSearch];
-        if (jpgrang.location != 0 || pngrang.location != 0) {
-            NSLog(@"url=======>%@",urlString);
+        NSRange  q75rang = [urlString rangeOfString:@"q75" options:NSCaseInsensitiveSearch];
+        NSRange  q90rang = [urlString rangeOfString:@"q90" options:NSCaseInsensitiveSearch];
+        if (jpgrang.location < len || pngrang.location < len) {
+            if (q75rang.location < len || q90rang.location < len) {
+                NSLog(@"url=======>%@",urlString);
+            }
+            
         }
+        
     }
     return NO;
 }
