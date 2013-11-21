@@ -6,13 +6,14 @@
 //  Copyright (c) 2013年 芈峮. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TestViewController.h"
 
-@interface ViewController ()
+@interface TestViewController ()
 
 @end
 
-@implementation ViewController
+@implementation TestViewController
+@synthesize url = _url, type = _type;
 
 - (void)viewDidLoad
 {
@@ -30,7 +31,7 @@
 	self.myWebView.delegate = self;
 	[self.view addSubview:self.myWebView];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.taobao.com/"]]];
+    [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
     
 }
 

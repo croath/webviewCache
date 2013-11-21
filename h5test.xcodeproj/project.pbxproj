@@ -15,7 +15,6 @@
 		02B9656D1835BBDE00120EC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B9656C1835BBDE00120EC0 /* AppDelegate.m */; };
 		02B965701835BBDE00120EC0 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B9656E1835BBDE00120EC0 /* Main_iPhone.storyboard */; };
 		02B965731835BBDE00120EC0 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B965711835BBDE00120EC0 /* Main_iPad.storyboard */; };
-		02B965761835BBDE00120EC0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B965751835BBDE00120EC0 /* ViewController.m */; };
 		02B965781835BBDE00120EC0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02B965771835BBDE00120EC0 /* Images.xcassets */; };
 		02B9657F1835BBDE00120EC0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B9657E1835BBDE00120EC0 /* XCTest.framework */; };
 		02B965801835BBDE00120EC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B9655C1835BBDE00120EC0 /* Foundation.framework */; };
@@ -23,6 +22,16 @@
 		02B965891835BBDE00120EC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02B965871835BBDE00120EC0 /* InfoPlist.strings */; };
 		02B9658B1835BBDE00120EC0 /* h5testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B9658A1835BBDE00120EC0 /* h5testTests.m */; };
 		02B965991835F8F800120EC0 /* MJURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B965981835F8F800120EC0 /* MJURLProtocol.m */; };
+		EF03C269183E356F0027A91E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF03C268183E356F0027A91E /* TestViewController.m */; };
+		EFAC54D3183E09BC005B7C40 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAC54D2183E09BC005B7C40 /* MainViewController.m */; };
+		EFAC54D6183E09FD005B7C40 /* ActionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAC54D5183E09FD005B7C40 /* ActionsView.m */; };
+		EFAC54D8183E0A1D005B7C40 /* ActionsViewInXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAC54D7183E0A1D005B7C40 /* ActionsViewInXib.xib */; };
+		EFAC54DA183E0BFE005B7C40 /* MainCellInXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAC54D9183E0BFE005B7C40 /* MainCellInXib.xib */; };
+		EFAC54E0183E0D9E005B7C40 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAC54DF183E0D9E005B7C40 /* EditViewController.m */; };
+		EFAC54E4183E1011005B7C40 /* URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAC54E3183E1011005B7C40 /* URLManager.m */; };
+		EFAC54E7183E2796005B7C40 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAC54E6183E2796005B7C40 /* MainCell.m */; };
+		EFAC54E9183E2B09005B7C40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAC54E8183E2B09005B7C40 /* QuartzCore.framework */; };
+		EFAC54ED183E2CCD005B7C40 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAC54EC183E2CCD005B7C40 /* UIColor+Hex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +57,6 @@
 		02B9656C1835BBDE00120EC0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		02B9656F1835BBDE00120EC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		02B965721835BBDE00120EC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		02B965741835BBDE00120EC0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		02B965751835BBDE00120EC0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		02B965771835BBDE00120EC0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		02B9657D1835BBDE00120EC0 /* h5testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = h5testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B9657E1835BBDE00120EC0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -58,6 +65,23 @@
 		02B9658A1835BBDE00120EC0 /* h5testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = h5testTests.m; sourceTree = "<group>"; };
 		02B965971835F8F800120EC0 /* MJURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJURLProtocol.h; sourceTree = "<group>"; };
 		02B965981835F8F800120EC0 /* MJURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJURLProtocol.m; sourceTree = "<group>"; };
+		EF03C267183E356F0027A91E /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		EF03C268183E356F0027A91E /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		EFAC54D1183E09BC005B7C40 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EFAC54D2183E09BC005B7C40 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		EFAC54D4183E09FD005B7C40 /* ActionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionsView.h; sourceTree = "<group>"; };
+		EFAC54D5183E09FD005B7C40 /* ActionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionsView.m; sourceTree = "<group>"; };
+		EFAC54D7183E0A1D005B7C40 /* ActionsViewInXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionsViewInXib.xib; sourceTree = "<group>"; };
+		EFAC54D9183E0BFE005B7C40 /* MainCellInXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainCellInXib.xib; sourceTree = "<group>"; };
+		EFAC54DE183E0D9E005B7C40 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		EFAC54DF183E0D9E005B7C40 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		EFAC54E2183E1011005B7C40 /* URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManager.h; sourceTree = "<group>"; };
+		EFAC54E3183E1011005B7C40 /* URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManager.m; sourceTree = "<group>"; };
+		EFAC54E5183E2796005B7C40 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
+		EFAC54E6183E2796005B7C40 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
+		EFAC54E8183E2B09005B7C40 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EFAC54EB183E2CCD005B7C40 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		EFAC54EC183E2CCD005B7C40 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFAC54E9183E2B09005B7C40 /* QuartzCore.framework in Frameworks */,
 				02B9655F1835BBDE00120EC0 /* CoreGraphics.framework in Frameworks */,
 				02B965611835BBDE00120EC0 /* UIKit.framework in Frameworks */,
 				02B9655D1835BBDE00120EC0 /* Foundation.framework in Frameworks */,
@@ -106,6 +131,7 @@
 		02B9655B1835BBDE00120EC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFAC54E8183E2B09005B7C40 /* QuartzCore.framework */,
 				02B9655C1835BBDE00120EC0 /* Foundation.framework */,
 				02B9655E1835BBDE00120EC0 /* CoreGraphics.framework */,
 				02B965601835BBDE00120EC0 /* UIKit.framework */,
@@ -117,12 +143,13 @@
 		02B965621835BBDE00120EC0 /* h5test */ = {
 			isa = PBXGroup;
 			children = (
+				EF03C266183E356F0027A91E /* Tester */,
+				EFAC54EA183E2CCD005B7C40 /* Common */,
+				EFAC54E1183E0FF5005B7C40 /* Modules */,
+				EFAC54DB183E0D69005B7C40 /* Add */,
+				EFAC54D0183E09BC005B7C40 /* Main */,
 				02B9656B1835BBDE00120EC0 /* AppDelegate.h */,
 				02B9656C1835BBDE00120EC0 /* AppDelegate.m */,
-				02B9656E1835BBDE00120EC0 /* Main_iPhone.storyboard */,
-				02B965711835BBDE00120EC0 /* Main_iPad.storyboard */,
-				02B965741835BBDE00120EC0 /* ViewController.h */,
-				02B965751835BBDE00120EC0 /* ViewController.m */,
 				02B965771835BBDE00120EC0 /* Images.xcassets */,
 				02B965631835BBDE00120EC0 /* Supporting Files */,
 				02B965971835F8F800120EC0 /* MJURLProtocol.h */,
@@ -158,6 +185,59 @@
 				02B965871835BBDE00120EC0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF03C266183E356F0027A91E /* Tester */ = {
+			isa = PBXGroup;
+			children = (
+				EF03C267183E356F0027A91E /* TestViewController.h */,
+				EF03C268183E356F0027A91E /* TestViewController.m */,
+			);
+			path = Tester;
+			sourceTree = "<group>";
+		};
+		EFAC54D0183E09BC005B7C40 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				02B9656E1835BBDE00120EC0 /* Main_iPhone.storyboard */,
+				02B965711835BBDE00120EC0 /* Main_iPad.storyboard */,
+				EFAC54D1183E09BC005B7C40 /* MainViewController.h */,
+				EFAC54D2183E09BC005B7C40 /* MainViewController.m */,
+				EFAC54D4183E09FD005B7C40 /* ActionsView.h */,
+				EFAC54D5183E09FD005B7C40 /* ActionsView.m */,
+				EFAC54D7183E0A1D005B7C40 /* ActionsViewInXib.xib */,
+				EFAC54D9183E0BFE005B7C40 /* MainCellInXib.xib */,
+				EFAC54E5183E2796005B7C40 /* MainCell.h */,
+				EFAC54E6183E2796005B7C40 /* MainCell.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EFAC54DB183E0D69005B7C40 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				EFAC54DE183E0D9E005B7C40 /* EditViewController.h */,
+				EFAC54DF183E0D9E005B7C40 /* EditViewController.m */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		EFAC54E1183E0FF5005B7C40 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EFAC54E2183E1011005B7C40 /* URLManager.h */,
+				EFAC54E3183E1011005B7C40 /* URLManager.m */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		EFAC54EA183E2CCD005B7C40 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EFAC54EB183E2CCD005B7C40 /* UIColor+Hex.h */,
+				EFAC54EC183E2CCD005B7C40 /* UIColor+Hex.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,8 +318,10 @@
 			files = (
 				02B965731835BBDE00120EC0 /* Main_iPad.storyboard in Resources */,
 				02B965781835BBDE00120EC0 /* Images.xcassets in Resources */,
+				EFAC54D8183E0A1D005B7C40 /* ActionsViewInXib.xib in Resources */,
 				02B965701835BBDE00120EC0 /* Main_iPhone.storyboard in Resources */,
 				02B965671835BBDE00120EC0 /* InfoPlist.strings in Resources */,
+				EFAC54DA183E0BFE005B7C40 /* MainCellInXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,10 +340,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02B965761835BBDE00120EC0 /* ViewController.m in Sources */,
+				EFAC54D6183E09FD005B7C40 /* ActionsView.m in Sources */,
+				EFAC54ED183E2CCD005B7C40 /* UIColor+Hex.m in Sources */,
+				EFAC54D3183E09BC005B7C40 /* MainViewController.m in Sources */,
+				EFAC54E0183E0D9E005B7C40 /* EditViewController.m in Sources */,
+				EF03C269183E356F0027A91E /* TestViewController.m in Sources */,
 				02B9656D1835BBDE00120EC0 /* AppDelegate.m in Sources */,
+				EFAC54E4183E1011005B7C40 /* URLManager.m in Sources */,
 				02B965991835F8F800120EC0 /* MJURLProtocol.m in Sources */,
 				02B965691835BBDE00120EC0 /* main.m in Sources */,
+				EFAC54E7183E2796005B7C40 /* MainCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +386,7 @@
 				02B9656F1835BBDE00120EC0 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		02B965711835BBDE00120EC0 /* Main_iPad.storyboard */ = {
@@ -306,6 +395,7 @@
 				02B965721835BBDE00120EC0 /* Base */,
 			);
 			name = Main_iPad.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		02B965871835BBDE00120EC0 /* InfoPlist.strings */ = {
@@ -480,6 +570,7 @@
 				02B965901835BBDE00120EC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02B965911835BBDE00120EC0 /* Build configuration list for PBXNativeTarget "h5testTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +579,7 @@
 				02B965931835BBDE00120EC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
