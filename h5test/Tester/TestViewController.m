@@ -7,6 +7,7 @@
 //
 
 #import "TestViewController.h"
+#import "TBMBProgressHUD.h"
 
 @interface TestViewController ()
 
@@ -53,7 +54,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
 	_beforeLoadTime = [NSDate date];
-
+    [TBMBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -63,7 +64,7 @@
     if (![[[_request URL] absoluteString] isEqualToString:@"about:blank"]) {
         NSLog(@"page %@ loading times : %f",[[_request URL]absoluteString],times);
     }
-    
+    [TBMBProgressHUD hideHUDForView:self.view animated:YES];
     
 }
 
