@@ -8,6 +8,7 @@
 
 #import "TestViewController.h"
 #import "TBMBProgressHUD.h"
+#import "ReportSummaryViewController.h"
 
 @interface TestViewController ()
 
@@ -20,6 +21,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = CGRectMake(0, 0, 60, 30);
+    [button setTitle:@"查看结果" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(report:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
     self.title = NSLocalizedString(@"WebTitle", @"");
     
 	CGRect webFrame = [[UIScreen mainScreen] applicationFrame];
@@ -102,6 +110,11 @@
 							 @"<html><center><font size=+5 color='red'>An error occurred:<br>%@</font></center></html>",
 							 error.localizedDescription];
 	[self.myWebView loadHTMLString:errorString baseURL:nil];
+}
+
+#pragma mark - Action;
+- (void)report:(UIButton *)sender{
+    [self performSegueWithIdentifier:@"gotoReportSummary" sender:self];
 }
 
 @end

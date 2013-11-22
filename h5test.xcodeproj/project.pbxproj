@@ -28,6 +28,11 @@
 		02B965991835F8F800120EC0 /* MJURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B965981835F8F800120EC0 /* MJURLProtocol.m */; };
 		EF03C269183E356F0027A91E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF03C268183E356F0027A91E /* TestViewController.m */; };
 		EF03C270183E39160027A91E /* TBMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EF03C26F183E39160027A91E /* TBMBProgressHUD.m */; };
+		EFA2C139183F23B800B3B053 /* ReportSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA2C138183F23B800B3B053 /* ReportSummaryView.xib */; };
+		EFA2C13C183F23DB00B3B053 /* ReportSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C13B183F23DB00B3B053 /* ReportSummaryViewController.m */; };
+		EFA2C141183F2BED00B3B053 /* ReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C140183F2BED00B3B053 /* ReportDetailViewController.m */; };
+		EFA2C143183F2CEC00B3B053 /* ReportDetailCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA2C142183F2CEC00B3B053 /* ReportDetailCellView.xib */; };
+		EFA2C146183F2D6600B3B053 /* ReportDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C145183F2D6600B3B053 /* ReportDetailCell.m */; };
 		EFAC54D3183E09BC005B7C40 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAC54D2183E09BC005B7C40 /* MainViewController.m */; };
 		EFAC54D6183E09FD005B7C40 /* ActionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAC54D5183E09FD005B7C40 /* ActionsView.m */; };
 		EFAC54D8183E0A1D005B7C40 /* ActionsViewInXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAC54D7183E0A1D005B7C40 /* ActionsViewInXib.xib */; };
@@ -82,6 +87,14 @@
 		EF03C268183E356F0027A91E /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		EF03C26E183E39160027A91E /* TBMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMBProgressHUD.h; sourceTree = "<group>"; };
 		EF03C26F183E39160027A91E /* TBMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMBProgressHUD.m; sourceTree = "<group>"; };
+		EFA2C138183F23B800B3B053 /* ReportSummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportSummaryView.xib; sourceTree = "<group>"; };
+		EFA2C13A183F23DB00B3B053 /* ReportSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportSummaryViewController.h; sourceTree = "<group>"; };
+		EFA2C13B183F23DB00B3B053 /* ReportSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportSummaryViewController.m; sourceTree = "<group>"; };
+		EFA2C13F183F2BED00B3B053 /* ReportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailViewController.h; sourceTree = "<group>"; };
+		EFA2C140183F2BED00B3B053 /* ReportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailViewController.m; sourceTree = "<group>"; };
+		EFA2C142183F2CEC00B3B053 /* ReportDetailCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportDetailCellView.xib; sourceTree = "<group>"; };
+		EFA2C144183F2D6600B3B053 /* ReportDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailCell.h; sourceTree = "<group>"; };
+		EFA2C145183F2D6600B3B053 /* ReportDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailCell.m; sourceTree = "<group>"; };
 		EFAC54D1183E09BC005B7C40 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		EFAC54D2183E09BC005B7C40 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		EFAC54D4183E09FD005B7C40 /* ActionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionsView.h; sourceTree = "<group>"; };
@@ -158,6 +171,7 @@
 		02B965621835BBDE00120EC0 /* h5test */ = {
 			isa = PBXGroup;
 			children = (
+				EFA2C135183F22F100B3B053 /* Report */,
 				EF03C26C183E39160027A91E /* Library */,
 				EF03C266183E356F0027A91E /* Tester */,
 				EFAC54EA183E2CCD005B7C40 /* Common */,
@@ -227,6 +241,29 @@
 				EF03C26F183E39160027A91E /* TBMBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		EFA2C135183F22F100B3B053 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				EFA2C13E183F2BD100B3B053 /* Detail */,
+				EFA2C138183F23B800B3B053 /* ReportSummaryView.xib */,
+				EFA2C13A183F23DB00B3B053 /* ReportSummaryViewController.h */,
+				EFA2C13B183F23DB00B3B053 /* ReportSummaryViewController.m */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		EFA2C13E183F2BD100B3B053 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				EFA2C13F183F2BED00B3B053 /* ReportDetailViewController.h */,
+				EFA2C140183F2BED00B3B053 /* ReportDetailViewController.m */,
+				EFA2C142183F2CEC00B3B053 /* ReportDetailCellView.xib */,
+				EFA2C144183F2D6600B3B053 /* ReportDetailCell.h */,
+				EFA2C145183F2D6600B3B053 /* ReportDetailCell.m */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 		EFAC54D0183E09BC005B7C40 /* Main */ = {
@@ -357,8 +394,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA2C139183F23B800B3B053 /* ReportSummaryView.xib in Resources */,
 				02B965731835BBDE00120EC0 /* Main_iPad.storyboard in Resources */,
 				02B965781835BBDE00120EC0 /* Images.xcassets in Resources */,
+				EFA2C143183F2CEC00B3B053 /* ReportDetailCellView.xib in Resources */,
 				EFAC54D8183E0A1D005B7C40 /* ActionsViewInXib.xib in Resources */,
 				02B965701835BBDE00120EC0 /* Main_iPhone.storyboard in Resources */,
 				02B965671835BBDE00120EC0 /* InfoPlist.strings in Resources */,
@@ -382,7 +421,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFAC54D6183E09FD005B7C40 /* ActionsView.m in Sources */,
+				EFA2C13C183F23DB00B3B053 /* ReportSummaryViewController.m in Sources */,
+				EFA2C141183F2BED00B3B053 /* ReportDetailViewController.m in Sources */,
 				EFAC54ED183E2CCD005B7C40 /* UIColor+Hex.m in Sources */,
+				EFA2C146183F2D6600B3B053 /* ReportDetailCell.m in Sources */,
 				EFAC54D3183E09BC005B7C40 /* MainViewController.m in Sources */,
 				02244F20183EE6A1004093C8 /* ResponseTime.m in Sources */,
 				EFAC54E0183E0D9E005B7C40 /* EditViewController.m in Sources */,

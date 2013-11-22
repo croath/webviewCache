@@ -17,6 +17,9 @@
 #import "FunctionTester.h"
 
 @interface MainViewController ()<UITableViewDataSource, UITableViewDelegate>
+{
+    NSArray *_urls;
+}
 @property (nonatomic, strong)ActionsView *actionsView;
 @property (nonatomic, strong)UITableView *contentTableView;
 @end
@@ -118,19 +121,23 @@
 
 #pragma mark - Actions
 - (void)doSend:(NSArray *)urls{
-    TestViewController *controller = [[TestViewController alloc] init];
     if (!urls) {
         urls = [URLManager shareManager].urls;
     }
-    controller.urls = urls;
-    controller.type = self.actionsView.type;
-    [self cleanResult];
-    [self.navigationController pushViewController:controller animated:YES];
+    _urls = urls;
+    [self performSegueWithIdentifier:@"gotoTester" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"gotoTester"]) {
+        TestViewController *controller = segue.destinationViewController;
+        controller.type = self.actionsView.type;
+        controller.urls = _urls;
+    }
 }
 
 - (void) cleanResult
 {
-    [ResponseTime shareInstance].totalResposeTime = 0;
     [ResponseTime shareInstance].pageResponseTime = [[NSMutableArray alloc] init];
     [AllpageFlow shareInstance].pagesFlow = 0;
     [FunctionTester shareInstance].canTestPassed = YES;
