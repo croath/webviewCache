@@ -16,6 +16,9 @@
 
 @interface TestViewController ()
 
+@property (nonatomic) NSInteger index;
+@property (nonatomic) BOOL shouldContinue;
+
 @end
 
 @implementation TestViewController
@@ -26,7 +29,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self cleanResult];
-    
+    _index = 0;
+    _shouldContinue = YES;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     button.frame = CGRectMake(0, 0, 60, 30);
     [button setTitle:@"查看结果" forState:UIControlStateNormal];
@@ -46,12 +50,10 @@
 	[self.view addSubview:self.myWebView];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     [Level shareInstance].actionType = [self type];
+    [self loadPages];
+    [NSTimer scheduledTimerWithTimeInterval:8.f target:self selector:@selector(loadPages) userInfo:nil repeats:_shouldContinue];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-     [self loadPages];
-}
 
 - (void) cleanResult
 {
@@ -59,13 +61,15 @@
     [AllpageFlow shareInstance].pagesFlow = 0;
     [FunctionTester shareInstance].canTestPassed = YES;
     [FunctionTester shareInstance].failResults = [[NSMutableArray alloc] init];
+    NSLog(@"clean Result");
 }
 
 - (void) loadPages
 {
-    for (NSString * url in _urls) {
-        
+    if (_index < [_urls count]) {
+    
         NSString * urlpp;
+        NSString * url = [_urls objectAtIndex:_index];
         
         if (_type == q90Type) {
             urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=NO"];
@@ -77,10 +81,11 @@
             urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=originalType"];
         }
         
-       
+        [_myWebView performSelector:@selector(loadRequest:) withObject:[NSURLRequest requestWithURL:[NSURL URLWithString:urlpp] ] afterDelay:0];
+        _index++;
         
-        [_myWebView performSelector:@selector(loadRequest:) withObject:[NSURLRequest requestWithURL:[NSURL URLWithString:urlpp] ] afterDelay:5];
-        
+    }else{
+        _shouldContinue = NO;
     }
     
 }

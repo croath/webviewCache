@@ -23,6 +23,8 @@
 
 static NSString *MJURLHeader = @"mijunHeader";
 
+static NSDate * lastReceiveDataTime;
+
 
 @implementation MJURLProtocol
 
@@ -35,6 +37,7 @@ static NSString *MJURLHeader = @"mijunHeader";
             NSRange  jpgrang = [urlString rangeOfString:@"jpg" options:NSCaseInsensitiveSearch];
             ActionType type = [Level shareInstance].actionType;
             if (jpgrang.location != NSNotFound) {
+                NSLog(@"url=====>%@",[[request URL]absoluteString]);
                 switch (type) {
                     case q90Type:
                         if ([urlString rangeOfString:@"q90" options:NSCaseInsensitiveSearch].location == NSNotFound) {
@@ -61,9 +64,7 @@ static NSString *MJURLHeader = @"mijunHeader";
             }
             return YES;
         }
-        
     }
-    
     return NO;
 }
 
@@ -77,6 +78,7 @@ static NSString *MJURLHeader = @"mijunHeader";
 {
     [[self client] URLProtocol:self didLoadData:data];
     [AllpageFlow shareInstance].pagesFlow = [AllpageFlow shareInstance].pagesFlow + [data length];
+    NSLog(@"liuliang=====>%ld",[AllpageFlow shareInstance].pagesFlow);
 }
 
 - (void)startLoading
