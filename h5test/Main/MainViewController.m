@@ -120,6 +120,7 @@
         urls = [URLManager shareManager].urls;
     }
     controller.urls = urls;
+    controller.type = self.actionsView.type;
     [self.navigationController pushViewController:controller animated:YES];
 }
 @end
