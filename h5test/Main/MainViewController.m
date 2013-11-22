@@ -97,7 +97,9 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TestViewController *controller = [[TestViewController alloc] init];
-    controller.url = [[URLManager shareManager].urls objectAtIndex:indexPath.row];
+    NSMutableArray * testurls = [[NSMutableArray alloc] init];
+    [testurls addObject: [[URLManager shareManager].urls objectAtIndex:indexPath.row] ];
+    controller.urls = testurls;
     controller.type = self.actionsView.type;
     [self.navigationController pushViewController:controller animated:YES];
 }
@@ -105,7 +107,11 @@
 #pragma mark - Actions
 
 - (void)allSend{
-    
+    TestViewController *controller = [[TestViewController alloc] init];
+    controller.urls = [[URLManager shareManager].urls copy];
+    controller.type = self.actionsView.type;
+    [self.navigationController pushViewController:controller animated:YES];
 }
+
 
 @end

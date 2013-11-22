@@ -10,8 +10,10 @@
 #import "ActionsView.h"
 
 @interface TestViewController : UIViewController<UIWebViewDelegate>
-@property (nonatomic, strong)NSString *url; //测试url
-@property (nonatomic, assign)ActionType type; //测试类型
+
+@property (nonatomic, strong) NSArray * urls;
+
+@property (nonatomic, assign) ActionType type; //测试类型
 
 @property (nonatomic, strong) UIWebView * myWebView;
 

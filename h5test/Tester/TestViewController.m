@@ -14,7 +14,7 @@
 @end
 
 @implementation TestViewController
-@synthesize url = _url, type = _type;
+
 
 - (void)viewDidLoad
 {
@@ -32,7 +32,18 @@
 	self.myWebView.delegate = self;
 	[self.view addSubview:self.myWebView];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+    [self loadPages];
+    
+}
+
+- (void) loadPages
+{
+    for (NSString * url in _urls) {
+        
+        [_myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+        
+        //[NSThread sleepForTimeInterval:5];
+    }
     
 }
 
