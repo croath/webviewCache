@@ -120,7 +120,7 @@
 
 #pragma mark - Actions
 
-- (void)allSend{
+- (void)doSend{
     TestViewController *controller = [[TestViewController alloc] init];
     controller.urls = [[URLManager shareManager].urls copy];
     controller.type = self.actionsView.type;
