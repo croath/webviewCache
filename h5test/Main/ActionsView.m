@@ -8,6 +8,7 @@
 
 #import "ActionsView.h"
 #import "UIColor+Hex.h"
+#import "MainViewController.h"
 
 @implementation ActionsView
 @synthesize type = _type, observer = _observer;
@@ -43,8 +44,8 @@
 }
 
 - (IBAction)allSend:(id)sender {
-    if ([_observer respondsToSelector:@selector(doSend)]) {
-        [_observer performSelector:@selector(doSend) withObject:nil];
+    if ([_observer respondsToSelector:@selector(doSend:)]) {
+        [_observer performSelector:@selector(doSend:) withObject:nil];
     }
 }
 

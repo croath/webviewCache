@@ -10,4 +10,6 @@
 
 @interface MainViewController : UIViewController
 
+- (void)doSend:(NSArray *)urls;
+
 @end
