@@ -35,11 +35,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    if (self.detailType == resultDetailType) {
-        self.title = @"结果详情";
-    } else {
-        self.title = @"响应时间详情";
-    }
+    self.title = @"详情";
     self.contentTableView.dataSource = self;
     [self.contentTableView reloadData];
     
