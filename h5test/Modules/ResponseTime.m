@@ -8,11 +8,27 @@
 
 #import "ResponseTime.h"
 
+@implementation ResponseTimeObj
+
+-(ResponseTimeObj *)initWithUrl:(NSString * )url
+{
+    self = [super init];
+    _url = url;
+    return self;
+}
+
+- (NSTimeInterval)getResponseTime
+{
+    return [_afterLoadTime timeIntervalSinceDate:_beforeLoadTime];
+}
+
+@end
+
 @implementation ResponseTime
 
 static ResponseTime * instance;
 
-+ (id) shareInstance
++ (ResponseTime *) shareInstance
 {
     if (instance == nil) {
         instance = [[ResponseTime alloc] init];
@@ -21,11 +37,11 @@ static ResponseTime * instance;
 }
 
 
-- (id) init
+- (ResponseTime *) init
 {
     instance = [super init];
     _totalResposeTime = 0;
-    _pageResponseTime = [[NSMutableDictionary alloc] init];
+    _pageResponseTime = [[NSMutableArray alloc] init];
     return instance;
 }
 @end

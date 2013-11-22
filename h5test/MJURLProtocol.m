@@ -9,6 +9,10 @@
 
 
 #import "MJURLProtocol.h"
+#import "AllpageFlow.h"
+#import "Util.h"
+#import "ActionsView.h"
+#import "FunctionTester.h"
 
 @interface MJURLProtocol () // <NSURLConnectionDelegate, NSURLConnectionDataDelegate> iOS5-only
 @property (nonatomic, readwrite, strong) NSURLConnection *connection;
@@ -18,7 +22,6 @@
 
 static NSString *MJURLHeader = @"mijunHeader";
 
-double allsize = 0;
 
 @implementation MJURLProtocol
 
@@ -28,16 +31,31 @@ double allsize = 0;
     if ([[[request URL] scheme] isEqualToString:@"http"] || [[[request URL] scheme] isEqualToString:@"https"] ) {
         if ([request valueForHTTPHeaderField:MJURLHeader] == nil) {
             NSString * urlString =[[request URL] absoluteString];
-            NSInteger len = [urlString length];
             NSRange  jpgrang = [urlString rangeOfString:@"jpg" options:NSCaseInsensitiveSearch];
-            NSRange  pngrang = [urlString rangeOfString:@"png" options:NSCaseInsensitiveSearch];
-            NSRange  q75rang = [urlString rangeOfString:@"q75" options:NSCaseInsensitiveSearch];
-            NSRange  q90rang = [urlString rangeOfString:@"q90" options:NSCaseInsensitiveSearch];
-            if (jpgrang.location < len || pngrang.location < len) {
-                if (q75rang.location < len || q90rang.location < len) {
-                    NSLog(@"url=======>%@",urlString);
+            if (jpgrang.location != NSNotFound) {
+                switch ([Util getActionType]) {
+                    case q90Type:
+                        if ([urlString rangeOfString:@"q90" options:NSCaseInsensitiveSearch].location == NSNotFound) {
+                            [FunctionTester shareInstance].canTestPassed = NO;
+                            NSString * url = [[request URL] absoluteString];
+                            [[FunctionTester shareInstance].failResults addObject:url];
+                        }
+                        break;
+                    case q75Type:
+                        if ([urlString rangeOfString:@"q75" options:NSCaseInsensitiveSearch].location == NSNotFound) {
+                            [FunctionTester shareInstance].canTestPassed = NO;
+                            NSString * url = [[request URL] absoluteString];
+                            [[FunctionTester shareInstance].failResults addObject:url];
+                        }
+                        break;
+                    case originalType:
+                        break;
+                        
+                    default:
+                        [FunctionTester shareInstance].canTestPassed = NO;
+                        [[FunctionTester shareInstance].failResults addObject:@"测试类型没有拿到"];
+                        break;
                 }
-            
             }
             return YES;
         }
@@ -47,6 +65,7 @@ double allsize = 0;
     return NO;
 }
 
+
 + (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request
 {
     return request;
@@ -55,10 +74,7 @@ double allsize = 0;
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [[self client] URLProtocol:self didLoadData:data];
-    NSLog(@"url:=========>%@",[[[self request] URL]absoluteString]);
-    NSLog(@"Size:=====>%d",[data length]);
-    allsize = allsize + [data length];
-    NSLog(@"allSize:======>%f",allsize);
+    [AllpageFlow shareInstance].pagesFlow = [data length];
 }
 
 - (void)startLoading

@@ -10,6 +10,7 @@
 		02244F20183EE6A1004093C8 /* ResponseTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244F1F183EE6A1004093C8 /* ResponseTime.m */; };
 		02244F23183EE731004093C8 /* AllpageFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244F22183EE731004093C8 /* AllpageFlow.m */; };
 		02244F26183EE77F004093C8 /* FunctionTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244F25183EE77F004093C8 /* FunctionTester.m */; };
+		02244F2A183F1D15004093C8 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244F29183F1D15004093C8 /* Util.m */; };
 		02B9655D1835BBDE00120EC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B9655C1835BBDE00120EC0 /* Foundation.framework */; };
 		02B9655F1835BBDE00120EC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B9655E1835BBDE00120EC0 /* CoreGraphics.framework */; };
 		02B965611835BBDE00120EC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B965601835BBDE00120EC0 /* UIKit.framework */; };
@@ -55,6 +56,8 @@
 		02244F22183EE731004093C8 /* AllpageFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllpageFlow.m; sourceTree = "<group>"; };
 		02244F24183EE77F004093C8 /* FunctionTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionTester.h; sourceTree = "<group>"; };
 		02244F25183EE77F004093C8 /* FunctionTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionTester.m; sourceTree = "<group>"; };
+		02244F28183F1D15004093C8 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		02244F29183F1D15004093C8 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		02B965591835BBDE00120EC0 /* h5test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = h5test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B9655C1835BBDE00120EC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		02B9655E1835BBDE00120EC0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -272,6 +275,8 @@
 			children = (
 				EFAC54EB183E2CCD005B7C40 /* UIColor+Hex.h */,
 				EFAC54EC183E2CCD005B7C40 /* UIColor+Hex.m */,
+				02244F28183F1D15004093C8 /* Util.h */,
+				02244F29183F1D15004093C8 /* Util.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				EFAC54D3183E09BC005B7C40 /* MainViewController.m in Sources */,
 				02244F20183EE6A1004093C8 /* ResponseTime.m in Sources */,
 				EFAC54E0183E0D9E005B7C40 /* EditViewController.m in Sources */,
+				02244F2A183F1D15004093C8 /* Util.m in Sources */,
 				EF03C269183E356F0027A91E /* TestViewController.m in Sources */,
 				02B9656D1835BBDE00120EC0 /* AppDelegate.m in Sources */,
 				EFAC54E4183E1011005B7C40 /* URLManager.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  AllpageFlow.h
+//  Util.h
 //  h5test
 //
 //  Created by 芈峮 on 13-11-22.
@@ -7,12 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ActionsView.h"
 
-@interface AllpageFlow : NSObject
+@interface Util : NSObject
 
-@property (nonatomic) long pagesFlow;
-
-+ (AllpageFlow *) shareInstance;
-
++ (ActionType)getActionType;
 
 @end

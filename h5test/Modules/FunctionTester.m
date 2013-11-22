@@ -12,7 +12,7 @@
 
 static FunctionTester * instance;
 
-+ (id) shareInstance
++ (FunctionTester *) shareInstance
 {
     if (instance == nil) {
         instance = [[FunctionTester alloc] init];
@@ -21,7 +21,7 @@ static FunctionTester * instance;
 }
 
 
-- (id) init
+- (FunctionTester *) init
 {
     instance = [super init];
     _canTestPassed = YES;

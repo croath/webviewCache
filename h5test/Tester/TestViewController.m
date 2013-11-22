@@ -40,7 +40,20 @@
 {
     for (NSString * url in _urls) {
         
-        [_myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+        NSString * urlpp;
+        
+        if (_type == q90Type) {
+            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=NO"];
+        }
+        if (_type == q75Type) {
+            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=YES"];
+        }
+        if (_type == originalType) {
+            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=originalType"];
+        }
+        
+        
+        [_myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlpp]]];
         
         //[NSThread sleepForTimeInterval:5];
     }
@@ -64,17 +77,17 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-	_beforeLoadTime = [NSDate date];
+	if ([[[_request URL]absoluteString]rangeOfString:@"?getStatus"].location != NSNotFound) {
+        _currentTimeObj = [[ResponseTimeObj alloc] initWithUrl:[[_request URL] absoluteString]];
+        _currentTimeObj.beforeLoadTime = [NSDate date];
+        [[ResponseTime shareInstance].pageResponseTime addObject:_currentTimeObj];
+    }
     [TBMBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-	_afterLoadTime = [NSDate date];
-    NSTimeInterval times = [_afterLoadTime timeIntervalSinceDate:_beforeLoadTime];
-    if (![[[_request URL] absoluteString] isEqualToString:@"about:blank"]) {
-        NSLog(@"page %@ loading times : %f",[[_request URL]absoluteString],times);
-    }
+	_currentTimeObj.afterLoadTime = [NSDate date];
     [TBMBProgressHUD hideHUDForView:self.view animated:YES];
     
 }

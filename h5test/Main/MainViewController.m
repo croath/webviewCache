@@ -12,6 +12,9 @@
 #import "MainCell.h"
 #import "EditViewController.h"
 #import "TestViewController.h"
+#import "ResponseTime.h"
+#import "AllpageFlow.h"
+#import "FunctionTester.h"
 
 @interface MainViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong)ActionsView *actionsView;
@@ -121,6 +124,16 @@
     }
     controller.urls = urls;
     controller.type = self.actionsView.type;
+    [self cleanResult];
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void) cleanResult
+{
+    [ResponseTime shareInstance].totalResposeTime = 0;
+    [ResponseTime shareInstance].pageResponseTime = [[NSMutableArray alloc] init];
+    [AllpageFlow shareInstance].pagesFlow = 0;
+    [FunctionTester shareInstance].canTestPassed = YES;
+    [FunctionTester shareInstance].failResults = [[NSMutableArray alloc] init];
 }
 @end

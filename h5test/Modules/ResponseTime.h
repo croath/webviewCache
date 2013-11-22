@@ -12,8 +12,24 @@
 
 @property (nonatomic) long totalResposeTime;
 
-@property (nonatomic, strong) NSMutableDictionary * pageResponseTime;
+@property (nonatomic, strong) NSMutableArray * pageResponseTime;
 
-+ (id) shareInstance;
++ (ResponseTime * ) shareInstance;
+
+@end
+
+@interface ResponseTimeObj : NSObject
+
+@property (nonatomic, strong) NSString * url;
+
+@property (nonatomic, strong) NSDate * beforeLoadTime;
+
+@property (nonatomic, strong) NSDate * afterLoadTime;
+
+@property (nonatomic)  NSTimeInterval responseTimes;
+
+-(ResponseTimeObj *)initWithUrl:(NSString * )url;
+
+- (NSTimeInterval)getResponseTime;
 
 @end

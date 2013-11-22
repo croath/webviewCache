@@ -12,7 +12,7 @@
 
 static AllpageFlow * instance;
 
-+ (id) shareInstance
++ (AllpageFlow *) shareInstance
 {
     if (instance == nil) {
         instance = [[AllpageFlow alloc] init];
@@ -21,7 +21,7 @@ static AllpageFlow * instance;
 }
 
 
-- (id) init
+- (AllpageFlow *) init
 {
     instance = [super init];
     _pagesFlow = 0;

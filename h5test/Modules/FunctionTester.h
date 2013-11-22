@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray * failResults;
 
-+ (id) shareInstance;
++ (FunctionTester *) shareInstance;
+
 
 @end

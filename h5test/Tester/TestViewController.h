@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ActionsView.h"
+#import "ResponseTime.h"
 
 @interface TestViewController : UIViewController<UIWebViewDelegate>
 
@@ -17,11 +18,10 @@
 
 @property (nonatomic, strong) UIWebView * myWebView;
 
-@property (nonatomic, strong) NSDate * beforeLoadTime;
-
-@property (nonatomic, strong) NSDate * afterLoadTime;
+@property (nonatomic, strong) ResponseTimeObj * currentTimeObj;
 
 @property (nonatomic, strong) NSURLRequest * request;
+
 
 
 
