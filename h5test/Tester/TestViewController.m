@@ -9,6 +9,10 @@
 #import "TestViewController.h"
 #import "TBMBProgressHUD.h"
 #import "ReportSummaryViewController.h"
+#import "AllpageFlow.h"
+#import "ResponseTime.h"
+#import "FunctionTester.h"
+#import "Level.h"
 
 @interface TestViewController ()
 
@@ -21,6 +25,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self cleanResult];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     button.frame = CGRectMake(0, 0, 60, 30);
@@ -40,8 +45,20 @@
 	self.myWebView.delegate = self;
 	[self.view addSubview:self.myWebView];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    [self loadPages];
-    
+    [Level shareInstance].actionType = [self type];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+     [self loadPages];
+}
+
+- (void) cleanResult
+{
+    [ResponseTime shareInstance].pageResponseTime = [[NSMutableArray alloc] init];
+    [AllpageFlow shareInstance].pagesFlow = 0;
+    [FunctionTester shareInstance].canTestPassed = YES;
+    [FunctionTester shareInstance].failResults = [[NSMutableArray alloc] init];
 }
 
 - (void) loadPages
@@ -60,10 +77,10 @@
             urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=originalType"];
         }
         
+       
         
-        [_myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlpp]]];
+        [_myWebView performSelector:@selector(loadRequest:) withObject:[NSURLRequest requestWithURL:[NSURL URLWithString:urlpp] ] afterDelay:5];
         
-        //[NSThread sleepForTimeInterval:5];
     }
     
 }
@@ -90,13 +107,13 @@
         _currentTimeObj.beforeLoadTime = [NSDate date];
         [[ResponseTime shareInstance].pageResponseTime addObject:_currentTimeObj];
     }
-    [TBMBProgressHUD showHUDAddedTo:self.view animated:YES];
+   // [TBMBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 	_currentTimeObj.afterLoadTime = [NSDate date];
-    [TBMBProgressHUD hideHUDForView:self.view animated:YES];
+    //[TBMBProgressHUD hideHUDForView:self.view animated:YES];
     
 }
 

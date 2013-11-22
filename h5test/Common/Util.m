@@ -13,9 +13,20 @@
 
 @implementation Util
 
++ (UIWindow *)topWindow
+{
+    NSEnumerator *frontToBackWindows = [[[UIApplication sharedApplication] windows] reverseObjectEnumerator];
+    for (UIWindow *window in frontToBackWindows) {
+        if (window.windowLevel == UIWindowLevelNormal) {
+            return window;
+        }
+    }
+    return nil;
+}
+
 + (ActionType)getActionType
 {
-    if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[TestViewController class]]) {
+    if ([[Util topWindow].rootViewController isKindOfClass:[TestViewController class]]) {
         TestViewController * vc = (TestViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
         return vc.type;
     }

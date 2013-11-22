@@ -136,11 +136,4 @@
     }
 }
 
-- (void) cleanResult
-{
-    [ResponseTime shareInstance].pageResponseTime = [[NSMutableArray alloc] init];
-    [AllpageFlow shareInstance].pagesFlow = 0;
-    [FunctionTester shareInstance].canTestPassed = YES;
-    [FunctionTester shareInstance].failResults = [[NSMutableArray alloc] init];
-}
 @end

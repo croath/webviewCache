@@ -40,7 +40,9 @@
     } else {
         self.title = @"响应时间详情";
     }
+    self.contentTableView.dataSource = self;
     [self.contentTableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning

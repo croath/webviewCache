@@ -44,6 +44,7 @@ static URLManager *s_instance;
         } else {
             _urls = [NSMutableArray array];
             [_urls addObject:@"http://m.taobao.com"];
+            [_urls addObject:@"http://wapp.m.taobao.com/we/detail.htm#detail/2025703815/8448831/1/phone"];
         }
     }
     return _urls;

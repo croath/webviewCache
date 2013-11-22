@@ -1,5 +1,5 @@
 //
-//  Util.h
+//  Level.h
 //  h5test
 //
 //  Created by 芈峮 on 13-11-22.
@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "ActionsView.h"
 
-@interface Util : NSObject
+@interface Level : NSObject
 
-+ (UIWindow *)topWindow;
+@property (nonatomic, assign) ActionType actionType;
 
-+ (ActionType)getActionType;
++ (Level *) shareInstance;
 
 @end

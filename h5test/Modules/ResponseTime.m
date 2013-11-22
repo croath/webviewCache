@@ -52,7 +52,7 @@ static ResponseTime * instance;
     }
     NSTimeInterval averageTime = totalTimes/[_pageResponseTime count];
     
-    return [NSString stringWithFormat:@"%f  秒",averageTime];
+    return [NSString stringWithFormat:@"%.2f  秒",averageTime];
 }
 
 

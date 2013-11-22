@@ -13,6 +13,7 @@
 #import "Util.h"
 #import "ActionsView.h"
 #import "FunctionTester.h"
+#import "Level.h"
 
 @interface MJURLProtocol () // <NSURLConnectionDelegate, NSURLConnectionDataDelegate> iOS5-only
 @property (nonatomic, readwrite, strong) NSURLConnection *connection;
@@ -32,8 +33,9 @@ static NSString *MJURLHeader = @"mijunHeader";
         if ([request valueForHTTPHeaderField:MJURLHeader] == nil) {
             NSString * urlString =[[request URL] absoluteString];
             NSRange  jpgrang = [urlString rangeOfString:@"jpg" options:NSCaseInsensitiveSearch];
+            ActionType type = [Level shareInstance].actionType;
             if (jpgrang.location != NSNotFound) {
-                switch ([Util getActionType]) {
+                switch (type) {
                     case q90Type:
                         if ([urlString rangeOfString:@"q90" options:NSCaseInsensitiveSearch].location == NSNotFound) {
                             [FunctionTester shareInstance].canTestPassed = NO;
@@ -74,7 +76,7 @@ static NSString *MJURLHeader = @"mijunHeader";
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [[self client] URLProtocol:self didLoadData:data];
-    [AllpageFlow shareInstance].pagesFlow = [data length];
+    [AllpageFlow shareInstance].pagesFlow = [AllpageFlow shareInstance].pagesFlow + [data length];
 }
 
 - (void)startLoading
