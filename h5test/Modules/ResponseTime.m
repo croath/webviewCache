@@ -35,12 +35,22 @@ static ResponseTime * instance;
     }
     return instance;
 }
+- (NSTimeInterval) averageTime
+{
+    NSTimeInterval totalTimes = 0;
+    for (ResponseTimeObj * resobj in _pageResponseTime) {
+        if ([resobj isKindOfClass:[ResponseTimeObj class]]) {
+            ResponseTimeObj * testobj = (ResponseTimeObj *)resobj;
+            totalTimes = totalTimes + [testobj getResponseTime];
+        }
+    }
+    return totalTimes/[_pageResponseTime count];
+}
 
 
 - (ResponseTime *) init
 {
     instance = [super init];
-    _totalResposeTime = 0;
     _pageResponseTime = [[NSMutableArray alloc] init];
     return instance;
 }

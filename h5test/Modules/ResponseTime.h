@@ -10,11 +10,11 @@
 
 @interface ResponseTime : NSObject
 
-@property (nonatomic) long totalResposeTime;
-
 @property (nonatomic, strong) NSMutableArray * pageResponseTime;
 
 + (ResponseTime * ) shareInstance;
+
+- (NSTimeInterval) averageTime;
 
 @end
 
