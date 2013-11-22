@@ -42,7 +42,6 @@
 	CGRect webFrame = [[UIScreen mainScreen] applicationFrame];
 	webFrame.origin.y += 20.0 + 5.0;	// leave from the URL input field and its label
 	webFrame.size.height -= 40.0;
-	self.myWebView = [[UIWebView alloc] initWithFrame:webFrame];
 	self.myWebView.backgroundColor = [UIColor whiteColor];
 	self.myWebView.scalesPageToFit = YES;
 	self.myWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);

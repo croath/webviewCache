@@ -16,7 +16,7 @@
 
 @property (nonatomic, assign) ActionType type; //测试类型
 
-@property (nonatomic, strong) UIWebView * myWebView;
+@property (nonatomic, weak) IBOutlet UIWebView * myWebView;
 
 @property (nonatomic, strong) ResponseTimeObj * currentTimeObj;
 
