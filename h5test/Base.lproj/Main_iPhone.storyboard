@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="1409" y="39"/>
         </scene>
-        <!--Test View Controller - 正在测试...-->
+        <!--Test View Controller-->
         <scene sceneID="ktR-cD-x39">
             <objects>
                 <viewController id="veD-Jc-wUj" customClass="TestViewController" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="正在测试..." id="6zQ-EV-aNr"/>
+                    <navigationItem key="navigationItem" id="6zQ-EV-aNr"/>
                     <connections>
                         <outlet property="myWebView" destination="uj2-16-jRu" id="Prt-Bd-kVf"/>
                         <segue destination="GN2-dj-gyX" kind="push" identifier="gotoReportSummary" id="hzH-4Z-epy"/>

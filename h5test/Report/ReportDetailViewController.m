@@ -71,11 +71,13 @@
     }
     switch (_detailType) {
         case resultDetailType:
+            [cell setType:resultDetailType];
             cell.titleLabel.text = [[FunctionTester shareInstance].failResults objectAtIndex:indexPath.row];
             cell.detailLabel.text = @"失败";
             break;
         case responseTimeType:
         {
+            [cell setType:responseTimeType];
             ResponseTimeObj *obj = (ResponseTimeObj *)[[ResponseTime shareInstance].pageResponseTime objectAtIndex:0];
             cell.titleLabel.text = obj.url;
             cell.detailLabel.text = [obj getDetailResponseTime];

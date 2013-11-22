@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReportDetailViewController.h"
 
 @interface ReportDetailCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+@property (assign, nonatomic) ReportDetailType type;
 
 + (ReportDetailCell *)detailCell;
 
