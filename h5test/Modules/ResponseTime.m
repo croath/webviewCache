@@ -24,7 +24,7 @@
 
 - (NSString *)getDetailResponseTime
 {
-    return [NSString stringWithFormat:@"%f  秒",[self getResponseTime]];
+    return [NSString stringWithFormat:@"%.2f  秒",[self getResponseTime]];
 }
 
 
