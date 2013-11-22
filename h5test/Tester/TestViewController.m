@@ -68,7 +68,7 @@
     if (_index < [_urls count]) {
     
         NSString * urlpp;
-        NSString * url = [_urls objectAtIndex:_index];
+        NSString * url = [[_urls objectAtIndex:_index] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         if (_type == q90Type) {
             urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=NO"];
@@ -77,7 +77,7 @@
             urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=YES"];
         }
         if (_type == originalType) {
-            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=originalType"];
+            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=_noq"];
         }
         
         [_myWebView performSelector:@selector(loadRequest:) withObject:[NSURLRequest requestWithURL:[NSURL URLWithString:urlpp] ] afterDelay:0];
