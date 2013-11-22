@@ -32,4 +32,6 @@
 
 - (NSTimeInterval)getResponseTime;
 
+- (NSString *)getDetailResponseTime;
+
 @end

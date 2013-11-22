@@ -19,6 +19,10 @@ static AllpageFlow * instance;
     }
     return instance;
 }
+- (NSString *) getAllFlows
+{
+    return [NSString stringWithFormat:@"%ld   KB",[AllpageFlow shareInstance].pagesFlow ];
+}
 
 
 - (AllpageFlow *) init

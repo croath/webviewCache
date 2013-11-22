@@ -14,5 +14,7 @@
 
 + (AllpageFlow *) shareInstance;
 
+- (NSString *) getAllFlows;
+
 
 @end

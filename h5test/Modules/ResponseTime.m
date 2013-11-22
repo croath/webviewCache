@@ -22,6 +22,12 @@
     return [_afterLoadTime timeIntervalSinceDate:_beforeLoadTime];
 }
 
+- (NSString *)getDetailResponseTime
+{
+    return [NSString stringWithFormat:@"%f  秒",[self getResponseTime]];
+}
+
+
 @end
 
 @implementation ResponseTime
@@ -46,7 +52,7 @@ static ResponseTime * instance;
     }
     NSTimeInterval averageTime = totalTimes/[_pageResponseTime count];
     
-    return [NSString stringWithFormat:@"%f  KB",averageTime];
+    return [NSString stringWithFormat:@"%f  秒",averageTime];
 }
 
 
