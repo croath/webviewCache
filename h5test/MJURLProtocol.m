@@ -6,7 +6,19 @@
 //  Copyright (c) 2013年 芈峮. All rights reserved.
 //
 
+
+
 #import "MJURLProtocol.h"
+
+@interface MJURLProtocol () // <NSURLConnectionDelegate, NSURLConnectionDataDelegate> iOS5-only
+@property (nonatomic, readwrite, strong) NSURLConnection *connection;
+@property (nonatomic, readwrite, strong) NSMutableData *data;
+@property (nonatomic, readwrite, strong) NSURLResponse *response;
+@end
+
+static NSString *MJURLHeader = @"mijunHeader";
+
+double allsize = 0;
 
 @implementation MJURLProtocol
 
@@ -14,20 +26,24 @@
 {
     // only handle http requests we haven't marked with our header.
     if ([[[request URL] scheme] isEqualToString:@"http"] || [[[request URL] scheme] isEqualToString:@"https"] ) {
-        NSString * urlString =[[request URL] absoluteString];
-        NSInteger len = [urlString length];
-        NSRange  jpgrang = [urlString rangeOfString:@"jpg" options:NSCaseInsensitiveSearch];
-        NSRange  pngrang = [urlString rangeOfString:@"png" options:NSCaseInsensitiveSearch];
-        NSRange  q75rang = [urlString rangeOfString:@"q75" options:NSCaseInsensitiveSearch];
-        NSRange  q90rang = [urlString rangeOfString:@"q90" options:NSCaseInsensitiveSearch];
-        if (jpgrang.location < len || pngrang.location < len) {
-            if (q75rang.location < len || q90rang.location < len) {
-                NSLog(@"url=======>%@",urlString);
-            }
+        if ([request valueForHTTPHeaderField:MJURLHeader] == nil) {
+            NSString * urlString =[[request URL] absoluteString];
+            NSInteger len = [urlString length];
+            NSRange  jpgrang = [urlString rangeOfString:@"jpg" options:NSCaseInsensitiveSearch];
+            NSRange  pngrang = [urlString rangeOfString:@"png" options:NSCaseInsensitiveSearch];
+            NSRange  q75rang = [urlString rangeOfString:@"q75" options:NSCaseInsensitiveSearch];
+            NSRange  q90rang = [urlString rangeOfString:@"q90" options:NSCaseInsensitiveSearch];
+            if (jpgrang.location < len || pngrang.location < len) {
+                if (q75rang.location < len || q90rang.location < len) {
+                    NSLog(@"url=======>%@",urlString);
+                }
             
+            }
+            return YES;
         }
         
     }
+    
     return NO;
 }
 
@@ -39,7 +55,75 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [[self client] URLProtocol:self didLoadData:data];
+    NSLog(@"url:=========>%@",[[[self request] URL]absoluteString]);
     NSLog(@"Size:=====>%d",[data length]);
+    allsize = allsize + [data length];
+    NSLog(@"allSize:======>%f",allsize);
 }
+
+- (void)startLoading
+{
+    NSMutableURLRequest * connectionRequest = [[self request] mutableCopy];
+    [connectionRequest setValue:@"" forHTTPHeaderField:MJURLHeader];
+    NSURLConnection *connection = [NSURLConnection connectionWithRequest:connectionRequest
+                                                                delegate:self];
+    [self setConnection:connection];
+    
+}
+
+- (void)stopLoading
+{
+    [[self connection] cancel];
+}
+
+// NSURLConnection delegates (generally we pass these on to our client)
+
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response
+{
+    if (response != nil) {
+        NSMutableURLRequest *redirectableRequest =
+#if WORKAROUND_MUTABLE_COPY_LEAK
+        [request mutableCopyWorkaround];
+#else
+        [request mutableCopy];
+#endif
+        // We need to remove our header so we know to handle this request and cache it.
+        // There are 3 requests in flight: the outside request, which we handled, the internal request,
+        // which we marked with our header, and the redirectableRequest, which we're modifying here.
+        // The redirectable request will cause a new outside request from the NSURLProtocolClient, which
+        // must not be marked with our header.
+        [redirectableRequest setValue:nil forHTTPHeaderField:MJURLHeader];
+        
+        [[self client] URLProtocol:self wasRedirectedToRequest:redirectableRequest redirectResponse:response];
+        return redirectableRequest;
+    } else {
+        return request;
+    }
+}
+
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [[self client] URLProtocol:self didFailWithError:error];
+    [self setConnection:nil];
+    [self setData:nil];
+    [self setResponse:nil];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [self setResponse:response];
+    [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    [[self client] URLProtocolDidFinishLoading:self];
+    
+    [self setConnection:nil];
+    [self setData:nil];
+    [self setResponse:nil];
+}
+
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02244F20183EE6A1004093C8 /* ResponseTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244F1F183EE6A1004093C8 /* ResponseTime.m */; };
+		02244F23183EE731004093C8 /* AllpageFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244F22183EE731004093C8 /* AllpageFlow.m */; };
+		02244F26183EE77F004093C8 /* FunctionTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244F25183EE77F004093C8 /* FunctionTester.m */; };
 		02B9655D1835BBDE00120EC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B9655C1835BBDE00120EC0 /* Foundation.framework */; };
 		02B9655F1835BBDE00120EC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B9655E1835BBDE00120EC0 /* CoreGraphics.framework */; };
 		02B965611835BBDE00120EC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B965601835BBDE00120EC0 /* UIKit.framework */; };
@@ -46,6 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02244F1E183EE6A1004093C8 /* ResponseTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseTime.h; sourceTree = "<group>"; };
+		02244F1F183EE6A1004093C8 /* ResponseTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseTime.m; sourceTree = "<group>"; };
+		02244F21183EE731004093C8 /* AllpageFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllpageFlow.h; sourceTree = "<group>"; };
+		02244F22183EE731004093C8 /* AllpageFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllpageFlow.m; sourceTree = "<group>"; };
+		02244F24183EE77F004093C8 /* FunctionTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionTester.h; sourceTree = "<group>"; };
+		02244F25183EE77F004093C8 /* FunctionTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionTester.m; sourceTree = "<group>"; };
 		02B965591835BBDE00120EC0 /* h5test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = h5test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B9655C1835BBDE00120EC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		02B9655E1835BBDE00120EC0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -248,6 +257,12 @@
 			children = (
 				EFAC54E2183E1011005B7C40 /* URLManager.h */,
 				EFAC54E3183E1011005B7C40 /* URLManager.m */,
+				02244F1E183EE6A1004093C8 /* ResponseTime.h */,
+				02244F1F183EE6A1004093C8 /* ResponseTime.m */,
+				02244F21183EE731004093C8 /* AllpageFlow.h */,
+				02244F22183EE731004093C8 /* AllpageFlow.m */,
+				02244F24183EE77F004093C8 /* FunctionTester.h */,
+				02244F25183EE77F004093C8 /* FunctionTester.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -364,13 +379,16 @@
 				EFAC54D6183E09FD005B7C40 /* ActionsView.m in Sources */,
 				EFAC54ED183E2CCD005B7C40 /* UIColor+Hex.m in Sources */,
 				EFAC54D3183E09BC005B7C40 /* MainViewController.m in Sources */,
+				02244F20183EE6A1004093C8 /* ResponseTime.m in Sources */,
 				EFAC54E0183E0D9E005B7C40 /* EditViewController.m in Sources */,
 				EF03C269183E356F0027A91E /* TestViewController.m in Sources */,
 				02B9656D1835BBDE00120EC0 /* AppDelegate.m in Sources */,
 				EFAC54E4183E1011005B7C40 /* URLManager.m in Sources */,
 				EF03C270183E39160027A91E /* TBMBProgressHUD.m in Sources */,
+				02244F23183EE731004093C8 /* AllpageFlow.m in Sources */,
 				02B965991835F8F800120EC0 /* MJURLProtocol.m in Sources */,
 				02B965691835BBDE00120EC0 /* main.m in Sources */,
+				02244F26183EE77F004093C8 /* FunctionTester.m in Sources */,
 				EFAC54E7183E2796005B7C40 /* MainCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
