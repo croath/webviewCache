@@ -35,7 +35,7 @@ static ResponseTime * instance;
     }
     return instance;
 }
-- (NSTimeInterval) averageTime
+- (NSString * ) averageTime
 {
     NSTimeInterval totalTimes = 0;
     for (ResponseTimeObj * resobj in _pageResponseTime) {
@@ -44,7 +44,9 @@ static ResponseTime * instance;
             totalTimes = totalTimes + [testobj getResponseTime];
         }
     }
-    return totalTimes/[_pageResponseTime count];
+    NSTimeInterval averageTime = totalTimes/[_pageResponseTime count];
+    
+    return [NSString stringWithFormat:@"%f  KB",averageTime];
 }
 
 

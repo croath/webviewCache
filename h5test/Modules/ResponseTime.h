@@ -14,7 +14,7 @@
 
 + (ResponseTime * ) shareInstance;
 
-- (NSTimeInterval) averageTime;
+- (NSString * ) averageTime;
 
 @end
 
