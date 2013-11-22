@@ -10,7 +10,7 @@
 #import "URLManager.h"
 #import "UIColor+Hex.h"
 
-@interface EditViewController ()
+@interface EditViewController ()<UITextViewDelegate>
 @property (nonatomic, strong)UITextView *textView;
 @end
 
@@ -27,6 +27,8 @@
         self.textView.layer.shadowRadius = 1;
         self.textView.layer.shadowOpacity = 0.15;
         self.textView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.textView.bounds].CGPath;
+        self.textView.returnKeyType = UIReturnKeyDone;
+        self.textView.delegate = self;
     }
     return _textView;
 }
@@ -70,5 +72,4 @@
     [[URLManager shareManager] addUrl:self.textView.text];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 @end
