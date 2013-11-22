@@ -39,7 +39,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"测试结果汇总";
     if ([FunctionTester shareInstance].canTestPassed) {
         self.testResultLabel.text = @"成功";
         self.testResultLabel.textColor = [UIColor greenColor];

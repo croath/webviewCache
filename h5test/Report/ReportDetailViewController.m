@@ -35,11 +35,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    if (self.detailType == resultDetailType) {
-        self.title = @"结果详情";
-    } else {
-        self.title = @"响应时间详情";
-    }
+    self.title = @"详情";
     self.contentTableView.dataSource = self;
     [self.contentTableView reloadData];
     
@@ -75,11 +71,13 @@
     }
     switch (_detailType) {
         case resultDetailType:
+            [cell setType:resultDetailType];
             cell.titleLabel.text = [[FunctionTester shareInstance].failResults objectAtIndex:indexPath.row];
             cell.detailLabel.text = @"失败";
             break;
         case responseTimeType:
         {
+            [cell setType:responseTimeType];
             ResponseTimeObj *obj = (ResponseTimeObj *)[[ResponseTime shareInstance].pageResponseTime objectAtIndex:0];
             cell.titleLabel.text = obj.url;
             cell.detailLabel.text = [obj getDetailResponseTime];

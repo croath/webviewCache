@@ -37,8 +37,6 @@
     [button addTarget:self action:@selector(report:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
-    self.title = NSLocalizedString(@"WebTitle", @"");
-    
 	CGRect webFrame = [[UIScreen mainScreen] applicationFrame];
 	webFrame.origin.y += 20.0 + 5.0;	// leave from the URL input field and its label
 	webFrame.size.height -= 40.0;
