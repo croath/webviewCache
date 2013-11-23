@@ -36,7 +36,6 @@
     [button setTitle:@"查看结果" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(report:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    
 	CGRect webFrame = [[UIScreen mainScreen] applicationFrame];
 	webFrame.origin.y += 20.0 + 5.0;	// leave from the URL input field and its label
 	webFrame.size.height -= 40.0;
@@ -45,10 +44,16 @@
 	self.myWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 	self.myWebView.delegate = self;
 	[self.view addSubview:self.myWebView];
-    [self cleanResult];
     [Level shareInstance].actionType = [self type];
     [self loadPages];
     [NSTimer scheduledTimerWithTimeInterval:8.f target:self selector:@selector(loadPages) userInfo:nil repeats:_shouldContinue];
+}
+
+-(void) cleanCache
+{
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+    [[NSURLCache sharedURLCache] setDiskCapacity:0];
 }
 
 
@@ -76,15 +81,23 @@
         if (_type == _noq) {
             urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=_noq"];
         }
+        [self cleanCache];
         NSURL *URL = [NSURL URLWithString:urlpp];
         NSURLRequest *req = [NSURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:1];
-        
         [_myWebView loadRequest:req];
+        [self cleanCache];
         _index++;
     }else{
+        [self cleanCache];
         _shouldContinue = NO;
     }
     
+}
+
+- (void) viewDidUnload
+{
+    [self cleanCache];
+    _myWebView  = nil;
 }
 
 - (void)didReceiveMemoryWarning
