@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef enum{
-    originalType = 0,
-    q90Type,
-    q75Type
+    _noq = 0,
+    highLevels,
+    lowerLevels
 }ActionType;
 
 @interface ActionsView : UIView

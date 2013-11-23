@@ -16,5 +16,10 @@
 
 + (FunctionTester *) shareInstance;
 
+- (void) functionTest:(NSString *) levelKeyWord  withurl:(NSString *)urlString andWebp:(BOOL) canWebp;
+
+- (void) functionTestNoqWithUrl:(NSString *)urlString;
+
+- (void) addFailResultsWithUrl:(NSString *) urlString;
 
 @end

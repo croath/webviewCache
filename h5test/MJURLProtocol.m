@@ -39,26 +39,18 @@ static NSDate * lastReceiveDataTime;
             if (jpgrang.location != NSNotFound) {
                 NSLog(@"url=====>%@",[[request URL]absoluteString]);
                 switch (type) {
-                    case q90Type:
-                        if ([urlString rangeOfString:@"q90" options:NSCaseInsensitiveSearch].location == NSNotFound) {
-                            [FunctionTester shareInstance].canTestPassed = NO;
-                            NSString * url = [[request URL] absoluteString];
-                            [[FunctionTester shareInstance].failResults addObject:url];
-                        }
+                    case highLevels:
+                        [[FunctionTester shareInstance] functionTest:lowerLevelKeyWord withurl:urlString andWebp:webpOr];
                         break;
-                    case q75Type:
-                        if ([urlString rangeOfString:@"q75" options:NSCaseInsensitiveSearch].location == NSNotFound) {
-                            [FunctionTester shareInstance].canTestPassed = NO;
-                            NSString * url = [[request URL] absoluteString];
-                            [[FunctionTester shareInstance].failResults addObject:url];
-                        }
+                    case lowerLevels:
+                        [[FunctionTester shareInstance] functionTest:lowerLevelKeyWord withurl:urlString andWebp:webpOr];
                         break;
-                    case originalType:
+                    case _noq:
+                        [[FunctionTester shareInstance] functionTestNoqWithUrl:urlString];
                         break;
                         
                     default:
-                        [FunctionTester shareInstance].canTestPassed = NO;
-                        [[FunctionTester shareInstance].failResults addObject:@"测试类型没有拿到"];
+                        [[FunctionTester shareInstance] addFailResultsWithUrl:@"测试类型没有拿到"];
                         break;
                 }
             }

@@ -76,7 +76,7 @@
             break;
         case responseTimeType:
         {
-            ResponseTimeObj *obj = (ResponseTimeObj *)[[ResponseTime shareInstance].pageResponseTime objectAtIndex:0];
+            ResponseTimeObj *obj = (ResponseTimeObj *)[[ResponseTime shareInstance].pageResponseTime objectAtIndex:indexPath.row];
             cell.titleLabel.text = obj.url;
             cell.detailLabel.text = [obj getDetailResponseTime];
         }

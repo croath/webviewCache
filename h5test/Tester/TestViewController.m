@@ -45,7 +45,7 @@
 	self.myWebView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 	self.myWebView.delegate = self;
 	[self.view addSubview:self.myWebView];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    [self cleanResult];
     [Level shareInstance].actionType = [self type];
     [self loadPages];
     [NSTimer scheduledTimerWithTimeInterval:8.f target:self selector:@selector(loadPages) userInfo:nil repeats:_shouldContinue];
@@ -67,20 +67,20 @@
     
         NSString * urlpp;
         NSString * url = [[_urls objectAtIndex:_index] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        
-        if (_type == q90Type) {
-            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=NO"];
+        if (_type == highLevels) {
+            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=false"];
         }
-        if (_type == q75Type) {
-            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=YES"];
+        if (_type == lowerLevels) {
+            urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=true"];
         }
-        if (_type == originalType) {
+        if (_type == _noq) {
             urlpp  = [NSString stringWithFormat:@"%@%@",url,@"?getStatus=_noq"];
         }
+        NSURL *URL = [NSURL URLWithString:urlpp];
+        NSURLRequest *req = [NSURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:1];
         
-        [_myWebView performSelector:@selector(loadRequest:) withObject:[NSURLRequest requestWithURL:[NSURL URLWithString:urlpp] ] afterDelay:0];
+        [_myWebView loadRequest:req];
         _index++;
-        
     }else{
         _shouldContinue = NO;
     }

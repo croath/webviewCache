@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "ActionsView.h"
 
+static NSString * highLevelKeyWord = @"q90";
+
+static NSString * lowerLevelKeyWord = @"q75";
+
+static NSString * webpKeyWord = @"webp";
+
+static BOOL webpOr = YES;
+
 @interface Level : NSObject
 
 @property (nonatomic, assign) ActionType actionType;
